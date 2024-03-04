@@ -9,10 +9,10 @@ import time
 import requests
 from urllib.request import urlretrieve
 
-chromedriver_path = "C:/Users/Dell/OneDrive/Documents/Grocery detector/webscrape/chromedriver-win32/chromedriver.exe"
+chromedriver_path = "C:/Users/Dell/Documents/Projects/Scrapper/chromedriver.exe" #path for chromedriver
 service = Service(chromedriver_path)
 driver = webdriver.Chrome(service=service)
-url = "https://www.google.com/search?q=pepsodent+toothpaste&tbm=isch"
+url = "https://www.google.com/search?q=Mercedez+benz&tbm=isch"
 driver.get(url)
 
 # Scroll all the way down to load all images
@@ -32,7 +32,7 @@ len_containers = len(containers)
 print(f"Found {len_containers} image containers")
 
 # Create a directory to save the images
-dir_name = "Pepsodent_toothpaste_images"
+dir_name = "Mercedez_benz_images"
 if not os.path.exists(dir_name):
     os.makedirs(dir_name)
 
@@ -43,7 +43,7 @@ for container in containers:
         break
     img_src = container['src']
     try:
-        img_name = f"{dir_name}/Pepsodent_toothpaste_{image_count}.jpg"
+        img_name = f"{dir_name}/Mercedez_benz_{image_count}.jpg"
         urlretrieve(img_src, img_name)
         image_count += 1
         print(f"Downloaded image {image_count}")
